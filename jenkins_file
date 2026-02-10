@@ -1,0 +1,43 @@
+pipeline {
+    agent any
+
+    environment {
+        SONAR_HOME = tool 'sonar-scanner'
+    }
+
+    stages {
+        stage('Clone Code From Github') {
+            steps {
+                git url: 'https://github.com/ils-roshang/chat-aaplication-DevSecOps.git', branch: 'main'
+            }
+        }
+
+        stage('SonarQube Quality Analysis') {
+            steps {
+                withSonarQubeEnv('sonar') {
+                    sh """
+                      ${SONAR_HOME}/bin/sonar-scanner \
+                      -Dsonar.projectName=chat-application \
+                      -Dsonar.projectKey=chat-application
+                    """
+                }
+            }
+        }
+        stage("OWASP Dependency Check") {
+            steps{
+                dependencyCheck additionalArguments: '--scan ./', odcInstallation: 'OWASP'
+                dependencyCheckPublisher pattern: '**/dependency-check-report.xml'
+            }
+        }
+        stage("Trivy File System Scan") {
+            steps{
+                sh "trivy fs --format table -o trivy-fs-report.html ."
+            }
+        }
+        stage("Deployment") {
+            steps{
+                sh "docker compose up -d --build"
+            }
+        }
+    }
+}
