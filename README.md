@@ -1,20 +1,41 @@
 # Realtime Chat Application
 
-### [Live Site](https://realtime-chat-application.netlify.com)
+A full-stack realtime chat application built with React, Node.js, Socket.io, and Docker.
 
-### [🌟 Become a top 1% Next.js developer in only one course](https://jsmastery.pro/next15)
-### [🚀 Land your dream programming job in 6 months](https://jsmastery.pro/masterclass)
+## 🚀 Features
 
-![Chat Application](https://i.ytimg.com/vi/ZwFA3YMfkoc/maxresdefault.jpg)
+- **Realtime Messaging**: Instant message delivery using WebSockets.
+- **Room Support**: Join and chat in specific rooms.
+- **Dockerized**: Fully containerized for easy deployment and development.
 
-## Introduction
-This is a code repository for the corresponding video tutorial. 
+## 🛠️ Tech Stack
 
-In this video, we will create a full Realtime Chat Application. We're going to use  React on the front end, with NodeJS + Socket.io web socket library on the back end. 
+- **Frontend**: React
+- **Backend**: Node.js, Express, Socket.io
+- **Infrastructure**: Docker, Docker Compose
 
-By the end of this video, you will have a strong understanding of how to send and receive messages using web sockets and Socket.io to make any real-time application.
+## 🏁 Getting Started
 
-## Launch your development career with project-based coaching - https://www.jsmastery.pro
+### Prerequisites
 
-Setup:
-- run ```npm i && npm start``` for both client and server side to start the development server
+- [Docker Desktop](https://www.docker.com/products/docker-desktop) installed on your machine.
+
+### Installation & Run
+
+1. **Clone the repository** (if you haven't already):
+   git clone https://github.com/ils-roshang/chat-aaplication-DevSecOps.git
+   cd chat-aaplication-DevSecOps
+
+2. **Start the application**:
+   docker-compose up -d --build
+
+3. **Access the app**:
+   - **Client**: Open [http://localhost:3000](http://localhost:3000) in your browser.
+   - **Server**: Running on [http://localhost:5000](http://localhost:5000).
+
+## 🛑 Stopping the App
+
+To stop the containers:
+
+docker-compose down
+
