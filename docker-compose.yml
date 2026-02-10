@@ -16,7 +16,7 @@ services:
     ports:
       - "3000:3000"
     environment:
-      - REACT_APP_ENDPOINT=http://localhost:5000
+      - REACT_APP_ENDPOINT=http://35.226.186.204:5000
     volumes:
       - ./client:/usr/src/app
       - /usr/src/app/node_modules
